@@ -32,15 +32,40 @@ body
   border-radius: 10px;
 }
 
-.clock
+#clock
 {
-    flex-direction: row;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 50px;
+    font-family: monospace;
+    font-weight: bold;
 }
 
-.face
+#date
 {
-  width: 180px;
-  height: 180px;
-  background-color: rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.bookmarks-container
+{
+    position: relative;
+    top: 20px;
+}
+
+.content p
+{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.content a
+{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+hr
+{
+    height: 80px;
+    border: none;
 }
