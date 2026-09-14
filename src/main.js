@@ -1,3 +1,4 @@
+// Variables and Constants
 let timeRemaining = 0;
 let intervalId;
 let paused = true;
@@ -44,6 +45,7 @@ resetButton.addEventListener('click', () => {
     updateTimer(display)
 });
 
+// Clock
 function updateClock() {
     const now = new Date();
 
@@ -73,6 +75,7 @@ function updateClock() {
     document.getElementById('clock').textContent = string;
 }
 
+// Date
 function updateDate() {
     const now = new Date();
 
@@ -88,6 +91,7 @@ function updateDate() {
     document.getElementById('date').textContent = string;
 }
 
+// Timer
 function startTimer(displayElement) {
     intervalId = setInterval(() => {
         if (paused === false) {
@@ -126,6 +130,7 @@ function updateTimer(displayElement) {
     displayElement.textContent = `${minutes}:${seconds}`;
 }
 
+// Google Search
 function performSearch() {
     const queryText = encodeURIComponent(searchInput.value.trim());
         if (queryText !== "") {
@@ -139,6 +144,7 @@ searchInput.addEventListener('keydown', function(event) {
     }
 });
 
+// Main
 updateDate();
 updateClock();
 
