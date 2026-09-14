@@ -90,24 +90,19 @@ function updateDate() {
 
 function startTimer(displayElement) {
     intervalId = setInterval(() => {
-        if(paused === false) {
-            let minutes = Math.floor(timeRemaining / 60);
-            let seconds = timeRemaining % 60;
-
-            minutes = String(minutes).padStart(2, '0');
-            seconds = String(seconds).padStart(2, '0');
-
-            displayElement.textContent = `${minutes}:${seconds}`;
-
-            if (--timeRemaining < 0) {
+        if (paused === false) {
+            if (timeRemaining <= 0) {
+                timeRemaining = 0;
                 clearInterval(intervalId);
                 intervalId = undefined;
                 displayElement.textContent = "00:00";
-                if(timeRemaining > 0) {
-                    timeRemaining = -1;
-                }
+                paused = true;
+                ppButton.textContent = "Play";
+                return;
             }
-        } else {
+
+            timeRemaining--;
+
             let minutes = Math.floor(timeRemaining / 60);
             let seconds = timeRemaining % 60;
 
@@ -115,6 +110,8 @@ function startTimer(displayElement) {
             seconds = String(seconds).padStart(2, '0');
 
             displayElement.textContent = `${minutes}:${seconds}`;
+        } else {
+            updateTimer(displayElement);
         }
     }, 1000);
 }
@@ -146,4 +143,4 @@ updateDate();
 updateClock();
 
 setInterval(updateClock, 1000);
-startTimer(display);
+updateTimer(display)
